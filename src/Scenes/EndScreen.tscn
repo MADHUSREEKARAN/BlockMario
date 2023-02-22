@@ -1,0 +1,79 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://src/Interface/PlayButton.gd" type="Script" id=1]
+[ext_resource path="res://src/Interface/QuitButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Interface/ChangeSceneButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/kenneyUI.tres" type="Theme" id=4]
+[ext_resource path="res://background.png" type="Texture" id=5]
+[ext_resource path="res://src/Interface/QuitButton.gd" type="Script" id=6]
+
+[node name="EndScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -1222.0
+margin_top = -141.0
+margin_right = 698.0
+margin_bottom = 939.0
+rect_scale = Vector2( 2.46825, 2.12783 )
+theme = ExtResource( 4 )
+texture = ExtResource( 5 )
+
+[node name="Menu" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -189.0
+margin_top = -100.0
+margin_right = -99.0
+margin_bottom = -56.0
+rect_scale = Vector2( 4.68184, 4.23894 )
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="PlayButton" type="Button" parent="Menu" instance=ExtResource( 3 )]
+margin_right = 90.0
+margin_bottom = 20.0
+toggle_mode = true
+text = "PLAY AGAIN"
+script = ExtResource( 1 )
+
+[node name="QuitButton" type="Button" parent="Menu" instance=ExtResource( 2 )]
+margin_top = 24.0
+margin_right = 90.0
+margin_bottom = 44.0
+text = "QUIT"
+script = ExtResource( 6 )
+
+[node name="EndNote" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -282.0
+margin_top = -180.0
+margin_right = 55.0
+margin_bottom = -166.0
+rect_scale = Vector2( 1.86661, 3.19059 )
+text = "CONGRATULATIONS ON COMPLETING THE GAME !!!!!"
+
+[node name="ScoreCard" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -110.0
+margin_top = 116.0
+margin_right = 19.0
+margin_bottom = 147.0
+rect_scale = Vector2( 1.892, 2.00836 )
+text = "YOUR SCORE IS %s
+YOU DIED %s TIMES"
+
+[connection signal="button_up" from="Menu/PlayButton" to="Menu/PlayButton" method="_on_button_up"]
+[connection signal="pressed" from="Menu/PlayButton" to="Menu/PlayButton" method="_on_pressed"]
+[connection signal="pressed" from="Menu/QuitButton" to="Menu/QuitButton" method="_on_pressed"]

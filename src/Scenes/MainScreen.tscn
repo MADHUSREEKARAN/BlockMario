@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://src/Interface/QuitButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Interface/ChangeSceneButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://background.png" type="Texture" id=4]
+[ext_resource path="res://src/kenneyUI.tres" type="Theme" id=5]
+[ext_resource path="res://montserrat_extrabold.otf" type="DynamicFontData" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 6 )
+
+[node name="MainScreen" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -1222.0
+margin_top = -141.0
+margin_right = 698.0
+margin_bottom = 939.0
+rect_scale = Vector2( 2.46825, 2.12783 )
+theme = ExtResource( 5 )
+texture = ExtResource( 4 )
+
+[node name="Menu" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 443.0
+margin_top = 162.0
+margin_right = 488.0
+margin_bottom = 206.0
+rect_scale = Vector2( 4.68184, 4.23894 )
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="PlayButton" parent="Menu" instance=ExtResource( 3 )]
+toggle_mode = true
+
+[node name="QuitButton" parent="Menu" instance=ExtResource( 2 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 24.0
+margin_right = 45.0
+margin_bottom = 44.0
+
+[node name="Title" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 209.0
+margin_top = 24.0
+margin_right = 411.0
+margin_bottom = 45.0
+rect_scale = Vector2( 3.82222, 6.26435 )
+custom_fonts/font = SubResource( 1 )
+text = "MY FIRST GODOT GAME"
+uppercase = true
+
+[connection signal="pressed" from="Menu/PlayButton" to="Menu/PlayButton" method="_on_pressed"]
